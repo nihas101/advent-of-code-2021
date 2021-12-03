@@ -38,7 +38,7 @@
   ([pos instructions]
    (execute-instructions pos instructions)))
 
-(defmethod execute-instruction [:aim :forward] [{:keys [aim] :as pos} [_ x]]
+(defmethod execute-instruction [:aim :forward] [{:keys [^long aim] :as pos} [_ ^long x]]
   (-> pos
       (update ,,, :horizontal-pos + x)
       (update ,,, :depth + (* aim x))))
