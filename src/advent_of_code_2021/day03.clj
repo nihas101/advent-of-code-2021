@@ -25,8 +25,8 @@
   ([] (day3-1 diagnostic-report))
   ([diagnostic-report]
    (let [bit-frequencies (bit-frequencies diagnostic-report)]
-     (* (epsilon-rate bit-frequencies)
-        (gamma-rate bit-frequencies)))))
+     (* ^long (epsilon-rate bit-frequencies)
+        ^long (gamma-rate bit-frequencies)))))
 
 (defn- bit [diagnostic-report n bit-criteria]
   (-> diagnostic-report
@@ -38,7 +38,7 @@
 (defn- rating-fn [bit-criteria]
   (fn rating
     ([diagnostic-report] (rating diagnostic-report "" 0))
-    ([diagnostic-report bit-pattern n]
+    ([diagnostic-report ^String bit-pattern ^long n]
      (if (= 1 (count diagnostic-report))
        (-> (first diagnostic-report)
            string/join
@@ -50,11 +50,13 @@
                 bit-pattern
                 (inc n)))))))
 
-(defn- most-common [{one \1 zero \0}] (if (< one zero) 0 1))
+(defn- most-common [{^long one \1 ^long zero \0}]
+  (if (< one zero) 0 1))
 
 (def ^:private oxygen-generator-rating (rating-fn most-common))
 
-(defn- least-common [{one \1 zero \0}] (if (< one zero) 1 0))
+(defn- least-common [{^long one \1 ^long zero \0}]
+  (if (< one zero) 1 0))
 
 (def ^:private co2-scrub-rating (rating-fn least-common))
 
@@ -62,5 +64,5 @@
   "https://adventofcode.com/2021/day/3"
   ([] (day3-2 diagnostic-report))
   ([diagnostic-report]
-   (* (oxygen-generator-rating diagnostic-report)
-      (co2-scrub-rating diagnostic-report "" 0))))
+   (* ^long (oxygen-generator-rating diagnostic-report)
+      ^long (co2-scrub-rating diagnostic-report "" 0))))
