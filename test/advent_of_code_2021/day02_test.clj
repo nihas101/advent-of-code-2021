@@ -1,7 +1,7 @@
 (ns advent-of-code-2021.day02-test
-    (:require
-     [clojure.test :refer :all]
-     [advent-of-code-2021.day02 :refer :all]))
+  (:require
+   [clojure.test :refer :all]
+   [advent-of-code-2021.day02 :refer :all]))
 
 (deftest day2-1-example-test
   (testing "Day 2 Part 1 - Example"
