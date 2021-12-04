@@ -6,9 +6,9 @@
 (def ^:private diagnostic-report
   (string/split (slurp "resources/diagnostic_report.txt") u/line-endings))
 
-(defn- rate-fn [comp]
+(defn- rate-fn [comparison-fn]
   (fn [bit-frequencies]
-    (-> (mapv #(ffirst (sort-by second comp %)) bit-frequencies)
+    (-> (mapv #(ffirst (sort-by second comparison-fn %)) bit-frequencies)
         string/join
         (Long/parseLong ,,, 2))))
 
