@@ -44,14 +44,12 @@
         (concat (rows board) (cols board))))
 
 (defn- no-board-won? [[numbers boards]]
-  (and (not (some bingo? boards))
+  (and (not-any? bingo? boards)
        (seq numbers)))
 
 (defn- bingo-state [numbers boards]
-  (-> (drop-while no-board-won?
-                  (iterate draw-number
-                           [numbers boards nil]))
-      first))
+  (first (drop-while no-board-won?
+                     (iterate draw-number [numbers boards nil]))))
 
 (defn- board->score ^long [{:keys [board marked-positions]}]
   (transduce
