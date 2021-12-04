@@ -48,4 +48,4 @@
 (def line-endings #"\r?\n")
 
 (defn read-longs [s split-on]
-  (mapv #(Long/parseLong %) (string/split s split-on)))
+  (mapv #(Long/parseLong %) (string/split (string/trim s) split-on)))
