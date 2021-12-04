@@ -71,7 +71,7 @@
     (is (= [#{[1 2] [3 0] [3 1] [4 2] [4 3]}
             #{[0 1] [1 3] [2 2] [4 1] [4 3]}
             #{[1 3] [3 1] [4 0] [4 3] [4 4]}]
-           (mapv :marked-positions 
+           (mapv :marked-positions
                  (first
                   ((juxt second #(nth % 2))
                    (#'advent-of-code-2021.day04/bingo-state
