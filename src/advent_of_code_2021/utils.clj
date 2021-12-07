@@ -4,7 +4,7 @@
 
 ;; Math
 
-(defn- abs [^long x] (max x (- x)))
+(defn abs [^long x] (max x (- x)))
 
 (defn extended-gcd
   "https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm"
