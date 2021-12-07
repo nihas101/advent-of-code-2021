@@ -28,7 +28,8 @@
   ([] (day7-1 crabs))
   ([crabs]
    (align-crabs-fuel-consumption crabs
-                                 (fuel-per-position-fn linear-fuel-consumption))))
+                                 (fuel-per-position-fn 
+                                  linear-fuel-consumption))))
 
 (defn- exponential-fuel-consumption [x1 x2]
   (reduce + (range (inc (u/abs (- x1 x2))))))
@@ -37,5 +38,6 @@
   "https://adventofcode.com/2021/day/7"
   ([] (day7-2 crabs))
   ([crabs]
-   (align-crabs-fuel-consumption crabs (fuel-per-position-fn
-                                        exponential-fuel-consumption))))
+   (align-crabs-fuel-consumption crabs
+                                 (fuel-per-position-fn
+                                  exponential-fuel-consumption))))
