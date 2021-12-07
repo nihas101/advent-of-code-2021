@@ -21,6 +21,7 @@
                (iterate next-day [fish days]))))
 
 (defn day6
+  "https://adventofcode.com/2021/day/6"
   ([days] (day6 fish days))
   ([fish days]
    (reduce + (vals (simulate-fish-spawn fish days)))))

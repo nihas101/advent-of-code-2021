@@ -41,6 +41,7 @@
   (parse-lines (slurp "resources/lines.txt")))
 
 (defn day5-1
+  "https://adventofcode.com/2021/day/5"
   ([] (day5-1 lines))
   ([coords]
    (->> coords
@@ -51,6 +52,7 @@
         count)))
 
 (defn day5-2
+  "https://adventofcode.com/2021/day/5"
   ([] (day5-2 lines))
   ([coords]
    (->> coords
