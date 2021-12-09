@@ -5,7 +5,7 @@ A repository containing my solutions to the [Advent of code 2021](https://advent
 The solutions are written in [Clojure](https://clojure.org).
 
 ## Solutions
-The solutions are located in `src/advent_of_code_2021/`. The solutions for day XX is found in file `dayXX.clj`. The corresponding test are found in files named `test/advent_of_code_2021/dayXX_test.clj`.
+The solutions are located in `src/advent_of_code_2021/`. The solutions for day XX are found in file `dayXX.clj`. The corresponding test are found in files named `test/advent_of_code_2021/dayXX_test.clj`.
 
 ## License
 
