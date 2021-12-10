@@ -60,13 +60,9 @@
 
 (def ^:private autocomplete-paren->points {\) 1 \] 2 \} 3 \> 4})
 
-(defn- autocomplete-points
-  ([autocomplete] (autocomplete-points 0 autocomplete))
-  ([^long score-up-to-now [c & cs]]
-   (if c
-     (recur (+ (* score-up-to-now 5) ^long (autocomplete-paren->points c))
-            cs)
-     score-up-to-now)))
+(defn- autocomplete-points [autocomplete]
+  (reduce (fn [^long score c] (+ (* score 5) ^long (autocomplete-paren->points c)))
+          0 autocomplete))
 
 (defn day10-2
   "https://adventofcode.com/2021/day/10"
