@@ -2,6 +2,9 @@
   (:require
    [clojure.string :as string]))
 
+(defn remove-vals [pred m]
+  (apply dissoc m (mapv first (remove pred m))))
+
 ;; Math
 
 (defn abs ^long [^long x] (max x (- x)))
