@@ -52,3 +52,16 @@
 
 (defn read-longs [s split-on]
   (mapv #(Long/parseLong %) (string/split (string/trim s) split-on)))
+
+;; Input parsing
+
+(defn- vals->pos+val [height-lines]
+  (mapcat (fn [hs y] (mapv (fn [h x] [[x y] (Long/parseLong (str h))])
+                           hs (range)))
+          height-lines (range)))
+
+(defn parse-positional-map [height-map]
+  (let [height-lines (string/split height-map line-endings)]
+    (reduce conj {:width (count (first height-lines))
+                  :height (count height-lines)}
+            (vals->pos+val height-lines))))

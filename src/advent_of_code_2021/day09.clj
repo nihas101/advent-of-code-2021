@@ -1,18 +1,6 @@
 (ns advent-of-code-2021.day09
   (:require
-   [clojure.string :as string]
    [advent-of-code-2021.utils :as u]))
-
-(defn- height-lines->pos+height [height-lines]
-  (mapcat (fn [hs y] (mapv (fn [h x] [[x y] (Long/parseLong (str h))])
-                           hs (range)))
-          height-lines (range)))
-
-(defn- parse-height-map [height-map]
-  (let [height-lines (string/split height-map u/line-endings)]
-    (reduce conj {:width (count (first height-lines))
-                  :height (count height-lines)}
-            (height-lines->pos+height height-lines))))
 
 (defn- neighbours [[^long x ^long y]]
   [[x (inc y)] [x (dec y)] [(inc x) y] [(dec x) y]])
@@ -27,7 +15,8 @@
                 x (range width)]
             [x y])))
 
-(def ^:private height-map (parse-height-map (slurp "resources/height_map.txt")))
+(def ^:private height-map (u/parse-positional-map
+                           (slurp "resources/height_map.txt")))
 
 (defn day9-1
   "https://adventofcode.com/2021/day/9"

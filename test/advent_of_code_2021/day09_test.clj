@@ -1,5 +1,6 @@
 (ns advent-of-code-2021.day09-test
   (:require
+   [advent-of-code-2021.utils :as u]
    [clojure.test :refer :all]
    [advent-of-code-2021.day09 :refer :all]))
 
@@ -19,14 +20,12 @@
             [8 0] 1 [8 1] 2 [8 2] 9 [8 3] 8 [8 4] 7 [9 0] 0 [9 1] 1 [9 2] 2
             [9 3] 9 [9 4] 8
             :height 5 :width 10}
-           (#'advent-of-code-2021.day09/parse-height-map
-            example-height-map)))))
+           (u/parse-positional-map example-height-map)))))
 
 (deftest day9-1-example-test
   (testing "Day 9 Part 1 - example"
     (is (= 15
-           (day9-1 (#'advent-of-code-2021.day09/parse-height-map
-                    example-height-map))))))
+           (day9-1 (u/parse-positional-map example-height-map))))))
 
 (deftest day9-1-test
   (testing "Day 9 Part 1"
@@ -35,8 +34,7 @@
 (deftest day9-2-example-test
   (testing "Day 9 Part 2 - example"
     (is (= 1134
-           (day9-2 (#'advent-of-code-2021.day09/parse-height-map
-                    example-height-map))))))
+           (day9-2 (u/parse-positional-map example-height-map))))))
 
 (deftest day9-2-test
   (testing "Day 9 Part 2"
