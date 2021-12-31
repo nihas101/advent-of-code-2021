@@ -2,6 +2,21 @@
   (:require
    [clojure.string :as string]))
 
+;; Trees
+
+(defn internal-node [left right]
+  {:left left
+   :right right})
+
+(defn leaf-node [value]
+  {:value value})
+
+(defn tree->vec [{:keys [left right value]}]
+  (or value
+      [(tree->vec left) (tree->vec right)]))
+
+;; Map
+
 (defn remove-vals [pred m]
   (apply dissoc m (mapv first (remove pred m))))
 
